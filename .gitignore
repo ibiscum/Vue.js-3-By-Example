@@ -1,4 +1,28 @@
-/ch5/android/capacitor-cordova-android-plugins
-/ch5/android/local.properties
-/ch5/android/.gradle
-/ch5/android/build
+.DS_Store
+node_modules
+dist
+
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+/Chapter05/android/capacitor-cordova-android-plugins
+/Chapter05/android/local.properties
+/Chapter05/android/.gradle
+/Chapter05/android/build

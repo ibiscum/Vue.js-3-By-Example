@@ -2,22 +2,15 @@
   <div>
     <h1>Github App</h1>
     <GitHubTokenForm />
-    <User />
-    <Repos />
+    <UserComp />
+    <ReposComp />
   </div>
 </template>
 
-<script>
+<script setup>
 import GitHubTokenForm from "./components/GitHubTokenForm.vue";
-import Repos from "./components/Repos.vue";
-import User from "./components/User.vue";
-
-export default {
-  name: "App",
-  components: {
-    GitHubTokenForm,
-    Repos,
-    User,
-  },
-};
+import ReposComp from "./components/Repos.vue";
+import UserComp from "./components/User.vue";
 </script>
+
+<style scoped></style>

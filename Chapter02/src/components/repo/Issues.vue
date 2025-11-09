@@ -5,7 +5,7 @@
       <div v-for="i of issues" :key="i.id">
         <h3>{{i.title}}</h3>
         <a :href="i.url">Go to issue</a>
-        <IssueComments :owner="owner" :repo="repo" :issueNumber="i.number" />
+        <IssueComments :owner="owner" :repo="repo" :issue-number="i.number" />
       </div>
     </div>
   </div>
@@ -20,6 +20,7 @@ export default {
   components: {
     IssueComments,
   },
+  mixins: [octokitMixin],
   props: {
     owner: {
       type: String,
@@ -30,25 +31,11 @@ export default {
       required: true,
     },
   },
-  mixins: [octokitMixin],
   data() {
     return {
       issues: [],
       showIssues: false,
     };
-  },
-  methods: {
-    async getRepoIssues(owner, repo) {
-      if (typeof owner !== "string" || typeof repo !== "string") {
-        return;
-      }
-      const octokit = this.createOctokitClient();
-      const { data: issues } = await octokit.issues.listForRepo({
-        owner,
-        repo,
-      });
-      this.issues = issues;
-    },
   },
   watch: {
     owner: {
@@ -62,6 +49,19 @@ export default {
       handler(val) {
         this.getRepoIssues(this.issues, val);
       },
+    },
+  },
+  methods: {
+    async getRepoIssues(owner, repo) {
+      if (typeof owner !== "string" || typeof repo !== "string") {
+        return;
+      }
+      const octokit = this.createOctokitClient();
+      const { data: issues } = await octokit.issues.listForRepo({
+        owner,
+        repo,
+      });
+      this.issues = issues;
     },
   },
 };

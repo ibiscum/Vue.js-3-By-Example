@@ -3,7 +3,7 @@
     <h1>User Info</h1>
     <ul>
       <li>
-        <img :src="userData.avatar_url" id="avatar" />
+        <img id="avatar" :src="userData.avatar_url" />
       </li>
       <li>username: {{userData.login}}</li>
       <li>followers: {{userData.followers}}</li>
@@ -16,13 +16,13 @@
 import { octokitMixin } from "../mixins/octokitMixin";
 
 export default {
-  name: "User",
+  name: "UserComp",
+  mixins: [octokitMixin],
   data() {
     return {
       userData: {},
     };
   },
-  mixins: [octokitMixin],
   async mounted() {
     const octokit = this.createOctokitClient();
     const { data: userData } = await octokit.request("/user");

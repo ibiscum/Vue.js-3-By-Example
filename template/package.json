@@ -1,8 +1,11 @@
 {
-  "name": "vue-example-ch2-github-app-vue-cli",
-  "version": "0.1.0",
+  "name": "template",
+  "version": "0.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,17 +14,17 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@vue/eslint-config-prettier": "^10.2.0",
-    "core-js": "^3.46.0",
-    "register-service-worker": "^1.7.2",
-    "vue": "^3.5.24"
+    "vue": "^3.5.22"
   },
   "devDependencies": {
+    "@eslint/js": "^9.37.0",
     "@vitejs/plugin-vue": "^6.0.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-vue": "^10.5.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "eslint": "^9.37.0",
+    "eslint-plugin-vue": "~10.5.0",
+    "globals": "^16.4.0",
     "prettier": "3.6.2",
-    "vite": "^7.2.2",
+    "vite": "^7.1.11",
     "vite-plugin-vue-devtools": "^8.0.3"
   }
 }

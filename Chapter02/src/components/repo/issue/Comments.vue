@@ -12,6 +12,7 @@ import { octokitMixin } from "../../../mixins/octokitMixin";
 
 export default {
   name: "IssueComments",
+  mixins: [octokitMixin],
   props: {
     owner: {
       type: String,
@@ -31,25 +32,6 @@ export default {
       comments: [],
     };
   },
-  mixins: [octokitMixin],
-  methods: {
-    async getIssueComments(owner, repo, issueNumber) {
-      if (
-        typeof owner !== "string" ||
-        typeof repo !== "string" ||
-        typeof issueNumber !== "number"
-      ) {
-        return;
-      }
-      const octokit = this.createOctokitClient();
-      const { data: comments } = await octokit.issues.listComments({
-        owner,
-        repo,
-        issue_number: issueNumber,
-      });
-      this.comments = comments;
-    },
-  },
   watch: {
     owner: {
       immediate: true,
@@ -68,6 +50,24 @@ export default {
       handler(val) {
         this.getIssueComments(this.owner, this.repo, val);
       },
+    },
+  },
+  methods: {
+    async getIssueComments(owner, repo, issueNumber) {
+      if (
+        typeof owner !== "string" ||
+        typeof repo !== "string" ||
+        typeof issueNumber !== "number"
+      ) {
+        return;
+      }
+      const octokit = this.createOctokitClient();
+      const { data: comments } = await octokit.issues.listComments({
+        owner,
+        repo,
+        issue_number: issueNumber,
+      });
+      this.comments = comments;
     },
   },
 };
