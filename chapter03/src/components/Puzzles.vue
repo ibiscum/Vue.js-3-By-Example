@@ -3,7 +3,7 @@
     <h1>Select a Puzzle</h1>
     <div v-for="p of puzzles" :key="p.id" class="row">
       <div>
-        <img :src="require(`../assets/${p.image}`)" />
+        <img :src="import(`../assets/${p.image}.jpg`)" />
       </div>
       <div>
         <h2>{{p.title}}</h2>

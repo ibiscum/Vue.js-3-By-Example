@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import PhotoFormPage from './components/PhotoFormPage';
-import SearchPage from './components/SearchPage';
-import HomePage from './components/HomePage';
+import PhotoFormPage from './components/PhotoFormPage.vue';
+import SearchPage from './components/SearchPage.vue';
+import HomePage from './components/HomePage,vue';
 
 const routes = [
   { path: '/add-photo-form', component: PhotoFormPage },

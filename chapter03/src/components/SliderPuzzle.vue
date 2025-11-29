@@ -12,7 +12,7 @@
         :key="s"
         @click="swap(index)"
       >
-        <img :src="require(`../assets/${puzzleId}/${s}`)" />
+        <img :src="import(`../assets/${puzzleId}/${s}.jpg`)" />
       </div>
     </div>
   </div>
