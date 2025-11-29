@@ -12,7 +12,9 @@
   "workspaces": [
     "chapter02",
     "chapter03",
-    "chapter04"
+    "chapter04",
+    "chapter08/backend",
+    "chapter08/frontend"
   ],
   "dependencies": {
     "core-js": "^3.46.0",

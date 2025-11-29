@@ -1,4 +1,5 @@
 {
+    "name": "@chapter08/backend",
     "private": true,
     "scripts": {
         "dev": "npm run development",
