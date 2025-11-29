@@ -1,5 +1,5 @@
 {
-  "name": "vue-example-ch2-github-app-vue-cli",
+  "name": "chapter02",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --fix --cache",
-    "format": "prettier --write src/"
+    "lint": "eslint . --fix --cache"
   },
   "dependencies": {
     "@vue/eslint-config-prettier": "^10.2.0",
