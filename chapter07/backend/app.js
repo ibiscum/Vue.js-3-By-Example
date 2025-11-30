@@ -6,6 +6,7 @@ const logger = require('morgan');
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
 const cors = require('cors')
+const RateLimit = require('express-rate-limit');
 const shopItemResolvers = require('./resolvers/shopItems')
 const orderResolvers = require('./resolvers/orders')
 const authResolvers = require('./resolvers/auth')
@@ -104,11 +105,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(authMiddleware)
-app.use('/graphql', graphqlHTTP({
-  schema,
-  rootValue: root,
-  graphiql: true,
-}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
