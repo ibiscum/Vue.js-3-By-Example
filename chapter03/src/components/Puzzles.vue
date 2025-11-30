@@ -20,9 +20,9 @@ export default {
   data() {
     return {
       puzzles: [
-        { id: 'cut-pink', image: "pink.jpg", title: "Pink Flower" },
-        { id: 'cut-purple', image: "purple.jpg", title: "Purple Flower" },
-        { id: 'cut-red', image: "red.jpg", title: "Red Flower" },
+        { id: 'cut-pink', image: "pink", title: "Pink Flower" },
+        { id: 'cut-purple', image: "purple", title: "Purple Flower" },
+        { id: 'cut-red', image: "red", title: "Red Flower" },
       ],
     };
   },
