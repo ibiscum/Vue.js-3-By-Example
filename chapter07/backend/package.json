@@ -1,7 +1,8 @@
 {
-  "name": "backend",
+  "name": "@chapter07/backend",
   "version": "0.0.0",
   "private": true,
+  "type": "commonjs",
   "scripts": {
     "start": "nodemon ./bin/www"
   },
