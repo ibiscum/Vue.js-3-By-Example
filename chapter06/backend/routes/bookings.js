@@ -3,6 +3,13 @@ const sqlite3 = require('sqlite3').verbose();
 const router = express.Router();
 const verifyToken = require('../middlewares/verify-token')
 
+// Rate limiter for sensitive operations
+const rateLimit = require('express-rate-limit');
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again after 15 minutes.'
+});
 router.get('/', (req, res, next) => {
   const db = new sqlite3.Database('./db.sqlite');
   db.serialize(() => {
@@ -42,7 +49,7 @@ router.post('/', (req, res) => {
   db.close();
 });
 
-router.delete('/:id', verifyToken, (req, res) => {
+router.delete('/:id', limiter, verifyToken, (req, res) => {
   const db = new sqlite3.Database('./db.sqlite');
   const { id } = req.params
   db.serialize(() => {
