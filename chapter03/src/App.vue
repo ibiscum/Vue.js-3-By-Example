@@ -2,14 +2,14 @@
   <div>
     <Puzzles @puzzle-changed="selectedPuzzleId = $event" />
     <Records />
-    <SliderPuzzle :puzzleId="selectedPuzzleId" />
+    <SliderPuzzle :puzzle-id="selectedPuzzleId" />
   </div>
 </template>
 
 <script>
-import SliderPuzzle from "./components/SliderPuzzle.vue";
-import Puzzles from "./components/Puzzles.vue";
-import Records from "./components/Records.vue";
+import SliderPuzzle from "./components/SliderPuzzleComp.vue";
+import Puzzles from "./components/PuzzlesComp.vue";
+import Records from "./components/RecordsComp.vue";
 
 export default {
   name: "App",

@@ -2,7 +2,13 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 import globals from 'globals'
 import js from '@eslint/js'
 import pluginVue from 'eslint-plugin-vue'
-import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+// import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+
+const GLOBALS_BROWSER_FIX = Object.assign({}, globals.browser, {
+  AudioWorkletGlobalScope: globals.browser['AudioWorkletGlobalScope ']
+});
+
+delete GLOBALS_BROWSER_FIX['AudioWorkletGlobalScope '];
 
 export default defineConfig([
   {
@@ -13,16 +19,9 @@ export default defineConfig([
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
 
   {
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        ...globals.jest,
-      },
-    },
+    languageOptions: {globals: {...GLOBALS_BROWSER_FIX, ...globals.node, ...globals.jest}},
   },
 
   js.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
-  skipFormatting,
 ])
