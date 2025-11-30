@@ -5,33 +5,17 @@
       <div>
         <label for="name">Name</label>
         <br />
-        <input
-          type="text"
-          v-model="form.name"
-          name="name"
-          id="name"
-          class="form-field"
-        />
+        <input type="text" v-model="form.name" name="name" id="name" class="form-field" />
       </div>
       <div>
         <label for="dscription">Description</label>
         <br />
-        <textarea
-          v-model="form.description"
-          name="description"
-          id="description"
-          class="form-field"
-        ></textarea>
+        <textarea v-model="form.description" name="description" id="description" class="form-field"></textarea>
       </div>
       <div>
         <label for="dateTaken">Date Taken</label>
         <br />
-        <input
-          type="datetime-local"
-          name="dateTaken"
-          id="dateTaken"
-          v-model="form.dateTaken"
-        />
+        <input type="datetime-local" name="dateTaken" id="dateTaken" v-model="form.dateTaken" />
       </div>
       <div>
         <label for="photoFile">Photo</label>

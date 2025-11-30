@@ -12,8 +12,8 @@
       <div>
         <img :src="p.photoFile" />
       </div>
-      <div>{{p.name}}</div>
-      <div>{{p.description}}</div>
+      <div>{{ p.name }}</div>
+      <div>{{ p.description }}</div>
       <div>
         <button @click="edit(p.id)">Edit</button>
         <button @click="deletePhoto(p.id)">Delete</button>

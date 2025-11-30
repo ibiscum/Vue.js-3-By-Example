@@ -15,8 +15,8 @@
       <div>
         <img :src="p.photoFile" />
       </div>
-      <div>{{p.name}}</div>
-      <div>{{p.description}}</div>
+      <div>{{ p.name }}</div>
+      <div>{{ p.description }}</div>
     </div>
   </div>
 </template>
@@ -61,6 +61,7 @@ export default {
 .form-field {
   width: 100%;
 }
+
 .row {
   display: flex;
   flex-wrap: wrap;
