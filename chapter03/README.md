@@ -1,29 +1,16 @@
-# vue-example-ch3-slider-puzzle
+# Chapter 03; slider-puzzle
 
 ## Project setup
-```
-npm install
-```
+    npm install
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Compiles and hot-reloads for development
+    npm run dev
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Compiles and minifies for production
+    npm run build
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## Run your unit tests
+    npm run test:unit
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Lints and fixes files
+    npm run lint

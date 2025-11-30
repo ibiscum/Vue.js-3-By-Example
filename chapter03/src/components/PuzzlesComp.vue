@@ -1,11 +1,7 @@
 <template>
   <div>
     <h1>Select a Puzzle</h1>
-    <div
-      v-for="p of puzzles"
-      :key="p.id"
-      class="row"
-    >
+    <div v-for="p of puzzles" :key="p.id" class="row">
       <div>
         <img :src="getImageUrl(p.image)">
       </div>
@@ -22,19 +18,21 @@
 </template>
 
 <script setup>
- const puzzles = [
+const puzzles = [
   { id: 'cut-pink', image: "pink", title: "Pink Flower" },
   { id: 'cut-purple', image: "purple", title: "Purple Flower" },
   { id: 'cut-red', image: "red", title: "Red Flower" },
 ];
+
+const emit = defineEmits(['puzzle-changed']);
 
 function getImageUrl(name) {
   return new URL(`../assets/${name}.jpg`, import.meta.url).href
 }
 
 function selectPuzzle(puzzle) {
-  this.$emit('puzzle-changed', puzzle.id);
-}
+  console.log("Selected puzzle:", puzzle.id);
+  emit("puzzle-changed", puzzle.id);}
 
 </script>
 

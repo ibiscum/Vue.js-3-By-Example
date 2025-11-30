@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
-import SliderPuzzle from '@/components/SliderPuzzle.vue'
-import 'jest-localstorage-mock';
-jest.useFakeTimers();
+import SliderPuzzle from '@/components/SliderPuzzleComp.vue'
+import 'vitest-localstorage-mock';
+vitest.useFakeTimers();
 
-describe('SliderPuzzle.vue', () => {
+describe('SliderPuzzleComp.vue', () => {
   it('inserts the index of the image to swap when we click on an image', () => {
     const wrapper = mount(SliderPuzzle)
     wrapper.find('#start-button').trigger('click')
@@ -76,6 +76,6 @@ describe('SliderPuzzle.vue', () => {
   })
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vitest.clearAllMocks();
   });
 })

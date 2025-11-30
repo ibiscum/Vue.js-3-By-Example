@@ -6,22 +6,10 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import SliderPuzzle from "./components/SliderPuzzleComp.vue";
 import Puzzles from "./components/PuzzlesComp.vue";
 import Records from "./components/RecordsComp.vue";
-
-export default {
-  name: "App",
-  components: {
-    SliderPuzzle,
-    Puzzles,
-    Records,
-  },
-  data() {
-    return {
-      selectedPuzzleId: "cut-pink",
-    };
-  },
-};
+const selectedPuzzleId = ref("cut-pink");
 </script>

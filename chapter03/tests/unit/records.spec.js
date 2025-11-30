@@ -1,6 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import 'jest-localstorage-mock';
-import Records from '@/components/Records.vue'
+import Records from '@/components/RecordsComp.vue'
 
 describe('Records.vue', () => {
   it('gets records from local storage', () => {

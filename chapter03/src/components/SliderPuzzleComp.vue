@@ -1,16 +1,10 @@
 <template>
   <div>
     <h1>Swap the Images to Win</h1>
-    <button
-      id="start-button"
-      @click="start"
-    >
+    <button id="start-button" @click="start">
       Start Game
     </button>
-    <button
-      id="quit-button"
-      @click="stop"
-    >
+    <button id="quit-button" @click="stop">
       Quit
     </button>
     <p>Elapsed Time: {{ elapsedTime }}</p>
@@ -18,13 +12,8 @@
       You win
     </p>
     <div class="row">
-      <div
-        v-for="(s, index) of shuffledPuzzleArray"
-        :key="s"
-        class="column"
-        @click="swap(index)"
-      >
-        <img :src="import(`../assets/${puzzleId}/${s}.jpg`)">
+      <div v-for="(s, index) of shuffledPuzzleArray" :key="s" class="column" @click="swap(index)">
+        <img :src="getImageUrl(s)" >
       </div>
     </div>
   </div>
@@ -109,8 +98,8 @@ function start() {
 }
 
 function stop() {
-  this.resetTime();
-  clearInterval(this.timer);
+  resetTime();
+  clearInterval(timer);
 }
 
 function resetTime() {
@@ -119,15 +108,15 @@ function resetTime() {
 }
 
 function recordSpeedRecords() {
-      let records = JSON.parse(localStorage.getItem("records")) || [];
-      const { elapsedTime, elapsedDiff } = this;
-      records.push({ elapsedTime, elapsedDiff });
-      const sortedRecords = records
-        .sort((a, b) => a.elapsedDiff - b.elapsedDiff)
-        .slice(0, 10);
-      const stringifiedRecords = JSON.stringify(sortedRecords);
-      localStorage.setItem("records", stringifiedRecords);
-    };
+  let records = JSON.parse(localStorage.getItem("records")) || [];
+  const { elapsedTime, elapsedDiff } = this;
+  records.push({ elapsedTime, elapsedDiff });
+  const sortedRecords = records
+    .sort((a, b) => a.elapsedDiff - b.elapsedDiff)
+    .slice(0, 10);
+  const stringifiedRecords = JSON.stringify(sortedRecords);
+  localStorage.setItem("records", stringifiedRecords);
+};
 
 function getImageUrl(name) {
   return new URL(`../assets/${name}.jpg`, import.meta.url).href
