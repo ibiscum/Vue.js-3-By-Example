@@ -13,7 +13,7 @@
     "graphql-request": "^3.4.0",
     "vee-validate": "^4.2.1",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.4",
+    "vue-router": "^4.6.4",
     "vuex": "^4.0.0",
     "vuex-persistedstate": "^4.0.0-beta.3",
     "yup": "^0.32.9"
