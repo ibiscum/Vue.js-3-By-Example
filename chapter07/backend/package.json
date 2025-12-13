@@ -9,7 +9,7 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
-    "debug": "~2.6.9",
+    "debug": "~4.4.3",
     "express": "~4.20.0",
     "express-graphql": "^0.12.0",
     "graphql": "^15.5.0",
