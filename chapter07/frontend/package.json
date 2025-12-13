@@ -10,7 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "graphql": "^15.5.0",
-    "graphql-request": "^3.4.0",
+    "graphql-request": "^7.4.0",
     "vee-validate": "^4.2.1",
     "vue": "^3.0.0",
     "vue-router": "^4.6.4",
