@@ -1,9 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const sqlite3 = require('sqlite3').verbose();
-const verifyToken = require('../middlewares/verify-token')
+import { Router } from 'express';
+const router = Router();
+import Database from 'better-sqlite3';
+import verifyToken from '../middlewares/verify-token.js';
 
-const rateLimit = require('express-rate-limit');
+import rateLimit from 'express-rate-limit';
 
 // Rate limiter: 100 requests per 15 minutes per IP for write operations
 const writeLimiter = rateLimit({
@@ -11,8 +11,13 @@ const writeLimiter = rateLimit({
   max: 100, // limit each IP to 100 requests per windowMs
   message: { error: "Too many requests. Please try again later." }
 });
+
+const db = new Database('backend.db', { verbose: console.log });
+db.pragma('journal_mode = WAL');
+
+
 router.get('/', (req, res,) => {
-  const db = new sqlite3.Database('./db.sqlite');
+
   db.serialize(() => {
     db.all("SELECT * FROM catalog_items", [], (err, rows = []) => {
       res.json(rows)
@@ -23,7 +28,6 @@ router.get('/', (req, res,) => {
 
 router.post('/', writeLimiter, verifyToken, (req, res,) => {
   const { name, description, imageUrl } = req.body
-  const db = new sqlite3.Database('./db.sqlite');
   db.serialize(() => {
     const stmt = db.prepare(`
     INSERT INTO catalog_items (
@@ -42,7 +46,6 @@ router.post('/', writeLimiter, verifyToken, (req, res,) => {
 
 router.delete('/:id', writeLimiter, verifyToken, (req, res,) => {
   const { id } = req.params
-  const db = new sqlite3.Database('./db.sqlite');
   db.serialize(() => {
     const stmt = db.prepare("DELETE FROM catalog_items WHERE id = (?)");
     stmt.run(id)
@@ -52,4 +55,4 @@ router.delete('/:id', writeLimiter, verifyToken, (req, res,) => {
   db.close();
 });
 
-module.exports = router;
+export default router;

@@ -13,12 +13,7 @@
         <p>End Date: {{ b.end_date }}</p>
       </template>
       <template #footer>
-        <Button
-          icon="pi pi-times"
-          label="Cancel"
-          class="p-button-secondary"
-          @click="deleteBooking(b.id)"
-        />
+        <Button icon="pi pi-times" label="Cancel" class="p-button-secondary" @click="deleteBooking(b.id)" />
       </template>
     </Card>
   </div>
@@ -27,7 +22,7 @@
 <script>
 import axios from "axios";
 import { APIURL } from "@/constants";
-import TopBar from "@/components/TopBar";
+import TopBar from "@/components/TopBar.vue";
 
 export default {
   name: "Bookings",

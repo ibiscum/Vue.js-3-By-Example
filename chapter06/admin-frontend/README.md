@@ -17,7 +17,8 @@ npm run build
 
 ### Lints and fixes files
 ```
-npm run lint
+pnpm create @eslint/config@latest
+pnpm exec lint
 ```
 
 ### Customize configuration

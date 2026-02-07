@@ -10,7 +10,7 @@ const beforeEnter = (to, from, next) => {
       return next({ fullPath: '/' })
     }
     return next()
-  } catch (error) {
+  } catch {
     return next({ fullPath: '/' })
   }
 }

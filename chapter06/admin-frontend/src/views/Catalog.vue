@@ -6,12 +6,10 @@
   <div class="p-col-12">
     <Button label="Add Vacation Package" @click="displayCatalog = true" />
     <Dialog header="Add Vacation Package" v-model:visible="displayCatalog">
-      <CatalogForm
-        @catalog-form-close="
-          displayCatalog = false;
-          getCatalog();
-        "
-      />
+      <CatalogForm @catalog-form-close="
+        displayCatalog = false;
+      getCatalog();
+      " />
     </Dialog>
   </div>
   <div class="p-col-12">
@@ -24,12 +22,7 @@
         {{ c.description }}
       </template>
       <template #footer>
-        <Button
-          icon="pi pi-times"
-          label="Delete"
-          class="p-button-secondary"
-          @click="deleteCatalogItem(c.id)"
-        />
+        <Button icon="pi pi-times" label="Delete" class="p-button-secondary" @click="deleteCatalogItem(c.id)" />
       </template>
     </Card>
   </div>
@@ -38,8 +31,8 @@
 <script>
 import axios from "axios";
 import { APIURL } from "@/constants";
-import TopBar from "@/components/TopBar";
-import CatalogForm from "@/components/CatalogForm";
+import TopBar from "@/components/TopBar.vue";
+import CatalogForm from "@/components/CatalogForm.vue";
 
 export default {
   name: "Catalog",

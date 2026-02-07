@@ -1,11 +1,8 @@
 <template>
-  <router-view></router-view>
+  <RouterView/>
 </template>
 
-<script>
-export default {
-  name: "App",
-};
+<script setup>
 </script>
 
 <style>

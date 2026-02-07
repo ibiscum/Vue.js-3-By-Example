@@ -7,11 +7,7 @@
     <Field v-slot="{ field, errors }" v-model="username" name="username">
       <div class="p-col-12">
         <div class="p-inputgroup">
-          <InputText
-            placeholder="Username"
-            :class="{ 'p-invalid': errors.length > 0 }"
-            v-bind="field"
-          />
+          <InputText placeholder="Username" :class="{ 'p-invalid': errors.length > 0 }" v-bind="field" />
         </div>
         <small class="p-error" v-if="errors.length > 0">
           Username is invalid.
@@ -22,12 +18,8 @@
     <Field v-slot="{ field, errors }" v-model="password" name="password">
       <div class="p-col-12">
         <div class="p-inputgroup">
-          <InputText
-            placeholder="Password"
-            type="password"
-            :class="{ 'p-invalid': errors.length > 0 }"
-            v-bind="field"
-          />
+          <InputText placeholder="Password" type="password" :class="{ 'p-invalid': errors.length > 0 }"
+            v-bind="field" />
         </div>
         <small class="p-error" v-if="errors.length > 0">
           Password is invalid
@@ -41,17 +33,22 @@
   </Form>
 </template>
 
-<script>
+<script setup>
 import * as yup from "yup";
 import axios from "axios";
 import { APIURL } from "@/constants";
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
+import { Form, Field } from "vee-validate";
 
 const schema = yup.object().shape({
   username: yup.string().required(),
   password: yup.string().required(),
 });
+</script>
 
-export default {
+<script>
+  export default {
   name: "Login",
   data() {
     return {
@@ -72,7 +69,7 @@ export default {
         });
         localStorage.setItem("token", token);
         this.$router.push("/bookings");
-      } catch (error) {
+      } catch {
         alert("Login failed");
       }
     },
