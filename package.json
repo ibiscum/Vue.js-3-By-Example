@@ -10,7 +10,6 @@
     "lint": "eslint --fix"
   },
   "dependencies": {
-  },
-  "devDependencies": {
+    "better-sqlite3": "^12.6.2"
   }
 }

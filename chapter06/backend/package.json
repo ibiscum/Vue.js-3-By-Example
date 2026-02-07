@@ -2,6 +2,7 @@
   "name": "backend",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "nodemon ./bin/www"
   },
@@ -11,17 +12,19 @@
     "cookie-parser": "~1.4.7",
     "cors": "^2.8.6",
     "debug": "^2.6.9",
-    "express": "^4.21.2",
+    "express": "^5.2.1",
     "express-rate-limit": "^8.2.1",
-    "http-errors": "^1.6.3",
+    "http-errors": "^1.8.1",
     "jsonwebtoken": "^9.0.3",
     "morgan": "^1.10.1",
-    "pug": "^3.0.3",
-    "sqlite3": "^5.1.7"
+    "pug": "^3.0.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "better-sqlite3"
     ]
-  }
+  },
+  "trusteddependencies": [
+    "better-sqlite3"
+  ]
 }

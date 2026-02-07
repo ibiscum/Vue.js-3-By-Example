@@ -1,15 +1,20 @@
 import { Router } from 'express';
-const sqlite3 = require('sqlite3').verbose();
+import Database from 'better-sqlite3';
 const router = Router();
 import verifyToken from '../middlewares/verify-token.js';
 
 // Rate limiter for sensitive operations
 import rateLimit from 'express-rate-limit';
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // limit each IP to 100 requests per windowMs
   message: 'Too many requests from this IP, please try again after 15 minutes.'
 });
+
+const db = new Database('backend.db', { verbose: console.log });
+db.pragma('journal_mode = WAL');
+
 router.get('/', (req, res) => {
   const db = new sqlite3.Database('./db.sqlite');
   db.serialize(() => {

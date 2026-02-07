@@ -4,14 +4,15 @@
  * Module dependencies.
  */
 import app from '../app.js';
-var debug = require('debug')('backend:server');
+import createDebugMessages from 'debug';
+var debug = createDebugMessages('backend:server');
 import { createServer } from 'http';
 
 /**
  * Get port from environment and store in Express.
  */
 var port = normalizePort(process.env.PORT || '3000');
-set('port', port);
+app.set('port', port);
 
 /**
  * Create HTTP server.
