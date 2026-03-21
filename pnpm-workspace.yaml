@@ -1,14 +1,18 @@
 packages:
-  - chapter01
-  - chapter02
-  - chapter03
-  - chapter04
-  - chapter05
-  - chapter06
-  - chapter07
-  - chapter08
+  - chapter01/**
+  - chapter02/**
+  - chapter03/**
+  - chapter04/**
+  - chapter05/**
+  - chapter06/**
+  - chapter07/**
+  - chapter08/**
 
 onlyBuiltDependencies:
-  - esbuild
   - better-sqlite3
+  - core-js
+  - electron
+  - esbuild
   - sqlite3
+  - unrs-resolver
+  - yorkie
